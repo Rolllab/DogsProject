@@ -21,4 +21,4 @@ class Command(BaseCommand):
 
         admin_user.set_password(os.getenv('ADMIN_PASSWORD'))
         admin_user.save()
-        return True
+        print("Создан новый пользователь")
