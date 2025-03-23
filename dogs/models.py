@@ -14,7 +14,7 @@ class Bread(models.Model):
         verbose_name_plural = 'breads'
 
 
-class Dogs(models.Model):
+class Dog(models.Model):
     name = models.CharField(max_length=250, verbose_name='dog name')
     bread = models.ForeignKey(Bread, on_delete=models.CASCADE, verbose_name='bread')
     photo = models.ImageField(upload_to='dogs/', **NULLABLE, verbose_name='image')
