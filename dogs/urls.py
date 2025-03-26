@@ -1,12 +1,14 @@
 from django.urls import path
 
-from dogs.views import index, breed_dogs_list, breeds_list
+from dogs.views import index, breed_dogs_list_view, breeds_list_view, dogs_list_view
 from dogs.apps import DogsConfig
 
 app_name = DogsConfig.name
 
 urlpatterns = [
     path('', index, name='index'),
-    path('breeds/', breeds_list, name='breeds'),
-    path('breeds/<int:pk>/dogs/', breed_dogs_list, name='breed_dogs')
+    path('breeds/', breeds_list_view, name='breeds'),
+    path('breeds/<int:pk>/dogs/', breed_dogs_list_view, name='breed_dogs'),
+
+    path('dogs/', dogs_list_view, name='dogs_list'),
 ]
