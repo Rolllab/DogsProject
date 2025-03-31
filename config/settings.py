@@ -58,7 +58,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# ROOT_URLCONF = 'DogsProject.urls'
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
