@@ -2,7 +2,7 @@
 import psycopg2
 from django.core.management import BaseCommand
 
-from DogsProject.settings import USER, PASSWORD, HOST, PAD, PORT
+from config.settings import USER, PASSWORD, HOST, PAD, PORT
 
 
 class Command(BaseCommand):
