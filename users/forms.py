@@ -20,3 +20,10 @@ class UserRegisterForm(forms.ModelForm):
 class UserLoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        # fields = ('email', 'first_name', 'last_name', 'phone')    # Один из вариантов записи
+        exclude = ('is_active', )                                   # Другой вариант записи
