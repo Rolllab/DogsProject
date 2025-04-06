@@ -39,8 +39,7 @@ def user_login_view(request):
                 if user.is_active:
                     login(request, user)
                     return HttpResponseRedirect(reverse('dogs:index'))
-                else:
-                    return HttpResponse('Аккаунт не активен')
+            return HttpResponse('Вы не можете войти на наш ресурс (ошибка пароля, нет аккаунта, вы забанены)')
 
     context = {
         'title': 'Вход в аккаунт',
