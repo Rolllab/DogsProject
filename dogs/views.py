@@ -45,7 +45,9 @@ def dog_create_view(request):
     if request.method == 'POST':
         form = DogForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            dog_object = form.save(commit=False)
+            dog_object.owner = request.user
+            dog_object.save()
             return HttpResponseRedirect(reverse('dogs:dogs_list'))
     return render(request, 'dogs/create_update.html', {'form': DogForm()})
 
@@ -66,7 +68,7 @@ def dog_update_view(request, pk):
     if request.method == 'POST':
         form = DogForm(request.POST, request.FILES, instance=dog_object)
         if form.is_valid():
-            dog_object = form.save()
+            dog_object = form.save(commit=False)
             dog_object.save()
             return HttpResponseRedirect(reverse('dogs:dog_detail', args={pk: pk})) # удивительно, но надо передавать args именно так
     context = {
